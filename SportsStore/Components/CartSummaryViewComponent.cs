@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
 
 namespace SportsStore.Components
@@ -18,3 +18,5 @@ namespace SportsStore.Components
         }
     }
 }
+
+//Testing 123 HELLO
