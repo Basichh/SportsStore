@@ -18,28 +18,6 @@
 
     </head>
     <body>
-        @*<nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a asp-page="/Index" class="navbar-brand">Walmart</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a asp-page="/Index">Home</a></li>
-                        <li><a asp-page="/About">About</a></li>
-                        <li><a asp-page="/Contact">Contact</a></li>
-                        <li><a asp-page="/FAQ">FAQ</a></li>
-                        <li><a asp-page="/List">Products</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>*@
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #007dc6;">
             @*<----------- Light blue walmart hex*@
             <a class="navbar-brand" asp-page="/Index">Walmart</a>
@@ -48,39 +26,42 @@
                 <span class="navbar-toggler-icon"></span>
             </button>*@
 
-            <div class="navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/Product/List"> Products <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            More
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-page="/About">About</a>
-                            <a class="dropdown-item" asp-page="/FAQ">FAQ</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-page="/Contact">Contact us</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input id="navBarSearchForm" class="form-control mr-sm-2" type="search" placeholder="Search for products here.." aria-label="Search" style="width:500px">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #ffc220; color: black">Search</button>
-                </form>
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/Account/Create">Create an account<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/Account/Login">Login<span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
+        <div class="navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Product/List"> Products <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        More
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" asp-page="/About">About</a>
+                        <a class="dropdown-item" asp-page="/FAQ">FAQ</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" asp-page="/Contact">Contact us</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input id="navBarSearchForm" class="form-control mr-sm-2" type="search" placeholder="Search for products here.." aria-label="Search" style="width:500px">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #ffc220; color: black">Search</button>
+            </form>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Account/Create">Create an account<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Account/Login">Login<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <div class="float-right">
+                @await Component.InvokeAsync("CartSummary")
             </div>
+        </div>
         </nav>
 
         <partial name="_CookieConsentPartial" />
