@@ -9,6 +9,7 @@ namespace SportsStore.Pages
 {
     public class IndexModel : PageModel
     {
+       public string SearchTerm { get; set; }
         public void OnGet()
         {
 

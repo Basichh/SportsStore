@@ -46,7 +46,7 @@
                     <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <form method="get" class="form-inline my-2 my-lg-0">
                 <input id="navBarSearchForm" class="form-control mr-sm-2" type="search" placeholder="Search for products here.." aria-label="Search" style="width:500px">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #ffc220; color: black">Search</button>
             </form>
@@ -70,7 +70,9 @@
             @RenderBody()
             <hr />
             <footer>
+                <div class="container">
                 <p>&copy; 2021 - Walmart</p>
+                </div>
             </footer>
         </div>
 

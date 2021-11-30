@@ -1,3 +1,39 @@
 ﻿<h2>Thanks!</h2>
 <p>Thanks for placing your order.</p>
 <p>We'll ship your goods as soon as possible.</p>
+
+@*@model IEnumerable<Order>
+@{
+    ViewBag.Title = "Orders";
+    Layout = "_AdminLayout";
+}
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Zip</th>
+            <th colspan="2">Details</th>
+            <th></th>
+        </tr>
+        @foreach (Order o in Model)
+        {
+            <tr>
+                <td>@o.Name</td>
+                <td>@o.Zip</td>
+                <td>@o.OrderID</td>
+                <th>Product</th>
+                <th>Quantity</th>
+            </tr>
+            @foreach (CartLine line in o.Lines)
+            {
+                <tr>
+                    <td colspan="2"></td>
+                    <td>@line.Product.Name</td>
+                    <td>@line.Quantity</td>
+                    <td></td>
+                </tr>
+            }
+        }
+    </table>*@
+
+
+
