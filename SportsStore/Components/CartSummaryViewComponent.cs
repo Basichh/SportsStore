@@ -19,10 +19,3 @@ namespace SportsStore.Components
     }
 }
 
-//Testing 123 HELLO 
-
-//Hello from VS
-
-//Hi this is claudio
-//Yoo this is Q!
-//Test from home.
