@@ -31,20 +31,20 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/Product/List"> Products <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         More
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu active" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" asp-page="/About">About</a>
                         <a class="dropdown-item" asp-page="/FAQ">FAQ</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" asp-page="/Contact">Contact us</a>
                     </div>
                 </li>
-                <li class="nav-item">
+                @*<li class="nav-item">
                     <a class="nav-link" asp-action="ShowSearchForm" asp-controller="Product">TestSearch</a>
-                </li>
+                </li>*@
             </ul>
             <form asp-action="ShowSearchForm" asp-controller="Product" class="form-inline my-2 my-lg-0">
                 <input id="navBarSearchForm" name="searchPhrase" class="form-control mr-sm-2" type="search" placeholder="Search for products here.." aria-label="Search" style="width:500px">
