@@ -10,8 +10,15 @@ namespace SportsStore.Controllers
 {
     public class ProductController : Controller
     {
+        //private readonly ApplicationDbContext _context;
+        
         private IProductRepository repository;
-        public int PageSize = 2;
+        public int PageSize = 15;
+
+        //public ProductController (ApplicationDbContext context)
+        ////{
+        ////    _context = context;
+        ////}
 
         public ProductController(IProductRepository repo)
         {
@@ -19,21 +26,34 @@ namespace SportsStore.Controllers
         }
 
         public ViewResult List(string category, int page = 1)
- => View(new ProductsListViewModel
- {
-     Products = repository.Products
- .Where(p => category == null || p.Category == category)
- .OrderBy(p => p.ProductID)
-.Skip((page - 1) * PageSize)
- .Take(PageSize),
-     PagingInfo = new PagingInfo
-     {
-         CurrentPage = page,
-         ItemsPerPage = PageSize,
-         TotalItems = repository.Products.Count()
-     },
-     CurrentCategory = category
- });
+            => View(new ProductsListViewModel
+            {
+                Products = repository.Products
+                            .Where(p => category == null || p.Category == category)
+                            .OrderBy(p => p.ProductID)
+                            .Skip((page - 1) * PageSize)
+                            .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = category == null ?
 
+                                repository.Products.Count() : 
+                                repository.Products.Where(e =>
+                                    e.Category == category).Count()
+                },
+                CurrentCategory = category
+            });
+
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+        }
+        
+        //public async Task<IActionResult> SearchResults(String searchPhrase)
+        //{
+        //    return View("Index", await _context.Products.ToList);
+        //}
     }
 }
