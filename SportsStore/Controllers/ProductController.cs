@@ -10,8 +10,15 @@ namespace SportsStore.Controllers
 {
     public class ProductController : Controller
     {
+        //private readonly ApplicationDbContext _context;
+        
         private IProductRepository repository;
-        public int PageSize = 10;
+        public int PageSize = 15;
+
+        //public ProductController (ApplicationDbContext context)
+        ////{
+        ////    _context = context;
+        ////}
 
         public ProductController(IProductRepository repo)
         {
@@ -38,5 +45,15 @@ namespace SportsStore.Controllers
                 },
                 CurrentCategory = category
             });
+
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+        }
+        
+        //public async Task<IActionResult> SearchResults(String searchPhrase)
+        //{
+        //    return View("Index", await _context.Products.ToList);
+        //}
     }
 }
