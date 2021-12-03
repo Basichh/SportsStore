@@ -7,7 +7,7 @@
     <form asp-action="Checkout" method="post">
         <h3>Ship to</h3>
         <div class="form-group">
-            <label>Name:</label><input asp-for="Name" class="form-control"/>
+            <label>Name:</label><input asp-for="Name" class="form-control" value="@User.Identity.Name" readonly/>
         </div>
         <h3>Address</h3>
         <div class="form-group">
