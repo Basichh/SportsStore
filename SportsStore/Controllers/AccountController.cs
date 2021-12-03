@@ -46,7 +46,10 @@ namespace SportsStore.Controllers
                     if ((await signInManager.PasswordSignInAsync(user,
                         loginModel.Password, false, false)).Succeeded)
                     {
-                        return Redirect(loginModel?.ReturnUrl ?? "/Admin/Index");
+                        //ViewBag.user = loginModel.Email;
+                        TempData["UserName"] = loginModel.Email;
+                        TempData.Keep("UserName");
+                        return Redirect(loginModel?.ReturnUrl ?? "../");
                     }
                 }
             }
@@ -93,7 +96,7 @@ namespace SportsStore.Controllers
                 if (result.Succeeded)
                 {
                     //await signInManager.SignInAsync(user, isPersistent: false); 
-                    return RedirectToAction("Index");
+                    return Redirect("Login");
                 }
                 else
                 {

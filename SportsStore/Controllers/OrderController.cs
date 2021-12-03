@@ -44,7 +44,7 @@ namespace SportsStore.Controllers
             {
                 order.Lines = cart.Lines.ToArray();
                 //ViewData["order"] = order;
-                ViewBag.Order = order;
+
                 repository.SaveOrder(order);
                 return RedirectToAction(nameof(Completed));
             }
@@ -57,7 +57,6 @@ namespace SportsStore.Controllers
         public ViewResult Completed()
         {
             cart.Clear();
-
             return View();
         }
     }
