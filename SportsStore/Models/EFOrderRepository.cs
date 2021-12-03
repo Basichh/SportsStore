@@ -6,6 +6,7 @@ namespace SportsStore.Models
     public class EFOrderRepository : IOrderRepository
     {
         private ApplicationDbContext context;
+
         public EFOrderRepository(ApplicationDbContext ctx)
         {
             context = ctx;

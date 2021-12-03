@@ -13,10 +13,13 @@ namespace SportsStore.Controllers
         {
             repository = repoService;
             cart = cartService;
+            //this.repository = repoService;
         }
 
         [Authorize]
         public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
+        [Authorize]
+        public ViewResult ViewOrders() => View(repository.Orders.Where(o => User.Identity.Name == o.Name));
 
         [HttpPost]
         [Authorize]
@@ -46,6 +49,8 @@ namespace SportsStore.Controllers
                 //ViewData["order"] = order;
 
                 repository.SaveOrder(order);
+                ViewBag.order = order;
+                
                 return RedirectToAction(nameof(Completed));
             }
             else
@@ -57,6 +62,7 @@ namespace SportsStore.Controllers
         public ViewResult Completed()
         {
             cart.Clear();
+            //ViewBag.rder = order;
             return View();
         }
     }
