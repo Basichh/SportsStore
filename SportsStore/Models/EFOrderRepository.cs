@@ -21,6 +21,7 @@ namespace SportsStore.Models
                 context.Orders.Add(order);
             }
             context.SaveChanges();
+            int id = order.OrderID;
         }
     }
 }

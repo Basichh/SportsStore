@@ -54,13 +54,11 @@
             </form>
             @if (User.Identity.IsAuthenticated)
             {
-                //<p>Welcome, @TempData["UserName"]</p>
                 <p>Welcome, @this.User.Identity.Name</p>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="/Account/Logout">Logout<span class="sr-only">(current)</span></a>
                     </li>
-
                 </ul>
             }
             else
