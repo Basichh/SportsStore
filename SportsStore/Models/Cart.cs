@@ -17,10 +17,15 @@ namespace SportsStore.Models
 
             if (line == null)
             {
+                
                 lineCollection.Add(new CartLine
                 {
                     Product = product,
-                    Quantity = quantity
+                    Quantity = quantity,
+                    Shipping = 3.00,
+                    ShownTax = 0.07,
+                    Tax = 1.07
+                    
                 });
             }
             else
@@ -32,7 +37,7 @@ namespace SportsStore.Models
             lineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
 
         public virtual decimal ComputeTotalValue() =>
-            lineCollection.Sum(e => e.Product.Price * e.Quantity);
+            lineCollection.Sum(e => e.Product.Price * e.Quantity * decimal.Parse(e.Tax.ToString()) + decimal.Parse(e.Shipping.ToString()));
 
         public virtual void Clear() => lineCollection.Clear();
 
@@ -44,5 +49,8 @@ namespace SportsStore.Models
         public int CartLineID { get; set; }
         public Product Product { get; set; }
         public int Quantity { get; set; }
+        public double Shipping { get; set; }
+        public double ShownTax { get; set; }
+        public double Tax { get; set; }
     }
 }
