@@ -45,21 +45,33 @@
                     </div>
                 </li>
                 @*<li class="nav-item">
-                    <a class="nav-link" asp-action="ShowSearchForm" asp-controller="Product">TestSearch</a>
-                </li>*@
+                <a class="nav-link" asp-action="ShowSearchForm" asp-controller="Product">TestSearch</a>
+            </li>*@
             </ul>
             <form asp-action="ShowSearchForm" asp-controller="Product" class="form-inline my-2 my-lg-0">
                 <input id="navBarSearchForm" name="searchPhrase" class="form-control mr-sm-2" type="search" placeholder="Search for products here.." aria-label="Search" style="width:500px">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #ffc220; color: black">Search</button>
             </form>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Account/Create">Create an account<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Account/Login">Login<span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <p>Welcome, @this.User.Identity.Name</p>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Account/Logout">Logout<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Account/Create">Create an account<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Account/Login">Login<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            }
             <div class="float-right">
                 @await Component.InvokeAsync("CartSummary")
             </div>
@@ -166,8 +178,8 @@
                 <!-- Footer Links -->
                 <!-- Copyright -->
                 <div class="footer-copyright text-center py-3">
-                    © 2021 Copyright:
-                    UNFMart</a>
+                    <a href=~/images/corn.jpg>©</a> 2021 Copyright:
+                    UNFMart
                 </div>
                 <!-- Copyright -->
 
