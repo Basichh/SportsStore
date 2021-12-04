@@ -46,8 +46,6 @@ namespace SportsStore.Controllers
             if (ModelState.IsValid)
             {
                 order.Lines = cart.Lines.ToArray();
-                //ViewData["order"] = order;
-                ViewBag.tempOrder = order.OrderID;
                 repository.SaveOrder(order);
                 ViewBag.order = order;
                 
@@ -64,8 +62,9 @@ namespace SportsStore.Controllers
             cart.Clear();
             ViewBag.order = order;
             
-            //ViewBag.rder = order;
             return View("Completed");
         }
+
+        
     }
 }
