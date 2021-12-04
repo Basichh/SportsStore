@@ -6,16 +6,11 @@
         //Order order = ViewBag.Order;
         //SportsStore.Models.Order order = (SportsStore.Models.Order)ViewBag.order;
        }*@
-@using SportsStore.Models
-
-@{ 
-    var order = ViewBag.order;
-}
 
 <h2>Thanks!</h2>
 <p>Thanks for placing your order.</p>
 <p>We'll ship your goods as soon as possible.</p>
-<p>Your order id is @order.orderID</p>
+<p>Your order id is @ViewBag.ordernum</p>
 @*<p>Username : @order.name</p>*@
 
 
