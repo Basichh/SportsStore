@@ -47,10 +47,11 @@ namespace SportsStore.Controllers
             {
                 order.Lines = cart.Lines.ToArray();
                 //ViewData["order"] = order;
-                ViewBag.tempOrder = order.OrderID;
-                repository.SaveOrder(order);
 
-                return Completed(order.OrderID);
+                repository.SaveOrder(order);
+                ViewBag.order = order;
+                
+                return RedirectToAction(nameof(Completed));
             }
             else
             {
@@ -58,11 +59,11 @@ namespace SportsStore.Controllers
             }
         }
 
-        public ViewResult Completed(int orderID)
+        public ViewResult Completed()
         {
             cart.Clear();
-            ViewBag.ordernum = orderID;
-            return View("Completed");
+            //ViewBag.rder = order;
+            return View();
         }
     }
 }

@@ -8,12 +8,14 @@
        }*@
 @using SportsStore.Models
 
-
+@{ 
+    var order = ViewBag.order;
+}
 
 <h2>Thanks!</h2>
 <p>Thanks for placing your order.</p>
 <p>We'll ship your goods as soon as possible.</p>
-<p>Your order id is @ViewBag.ordernum</p>
+<p>Your order id is @order.orderID</p>
 @*<p>Username : @order.name</p>*@
 
 
