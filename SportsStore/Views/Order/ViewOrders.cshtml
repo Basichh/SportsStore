@@ -6,28 +6,25 @@
 @if (Model.Count() > 0)
 {
 <table class="table table-bordered table-striped">
-    <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Order #</th>
-        <th></th>
-    </tr>
+    
     @foreach (Order o in Model)
     {
         if (o.Name == User.Identity.Name) @*This should filter to the current user logged in, no other orders. *@
     {
-            <tr>
-                <td></td>
-            </tr>
+        
+        <tr>
+            <th colspan="2">Order #@o.OrderID</th>
+        </tr>
+        
             @foreach (CartLine line in o.Lines)
             {
                 <tr>
                     <td>@line.Product.Name</td>
-                    <td>@line.Quantity</td>
-                    <td>@o.OrderID</td>
-                    </tr>
+                    <td>x @line.Quantity</td>
+                    
+                </tr>
             }
-        }
+    }
     }
 </table>
 }
