@@ -1,6 +1,14 @@
 ﻿@using Microsoft.Data.SqlClient.Server
 @model CartIndexViewModel
-@if (Model.Cart.Lines.Count() < 0)
+@if (Model.Cart.Lines.Count() == 0)
+{
+    <h2>There's nothing in your cart!</h2>
+    <div class="text-center">
+        <a class="btn btn-primary" href="/Product/List">Continue shopping</a>
+    </div>
+
+}
+else
 {
     <h2>Your cart</h2>
     <table class="table table-bordered table-striped">
@@ -65,13 +73,6 @@
         <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
             Checkout
         </a>
-    </div>
-}
-else
-{
-    <h2>There's nothing in your cart!</h2>
-    <div class="text-center">
-        <a class="btn btn-primary" href="/Product/List">Continue shopping</a>
     </div>
 
 }

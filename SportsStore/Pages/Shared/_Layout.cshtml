@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"]  UNFMart</title>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]  UNFMart</title>
 
-        @*<environment include="Development">
+    @*<environment include="Development">
             <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
             <link rel="stylesheet" href="~/css/site.css" />
         </environment>
@@ -15,16 +15,16 @@
                   asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
             <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         </environment>*@
-        <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
-        <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
-    </head>
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+    <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
+</head>
 
-    <body style="background-color:#F5F5F5">
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #007dc6;">
-            @*<----------- Light blue walmart hex*@
-            <a class="navbar-brand" asp-page="/Index">UNFMart</a>
-            <a class="navbar-brand" asp-page="/Index"> <img src="~/images/OspreyWhiteBG.png" alt="logo" class="image" style="max-height:50px; max-width:50px"></a>
-            @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<body style="background-color:#F5F5F5">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #007dc6;">
+        @*<----------- Light blue walmart hex*@
+        <a class="navbar-brand" asp-page="/Index">UNFMart</a>
+        <a class="navbar-brand" asp-page="/Index"> <img src="~/images/OspreyWhiteBG.png" alt="logo" class="image" style="max-height:50px; max-width:50px"></a>
+        @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>*@
 
@@ -45,15 +45,15 @@
                     </div>
                 </li>
                 @*<li class="nav-item">
-                <a class="nav-link" asp-action="ShowSearchForm" asp-controller="Product">TestSearch</a>
-            </li>*@
+                        <a class="nav-link" asp-action="ShowSearchForm" asp-controller="Product">TestSearch</a>
+                    </li>*@
             </ul>
 
             @*This is the search bar -------------------------*@
-             @*<form asp-action="ShowSearchForm" asp-controller="Product" class="form-inline my-2 my-lg-0">
-                <input id="navBarSearchForm" name="searchPhrase" class="form-control mr-sm-2" type="search" placeholder="Search for products here.." aria-label="Search" style="width:500px">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #ffc220; color: black">Search</button>
-            </form>*@
+            @*<form asp-action="ShowSearchForm" asp-controller="Product" class="form-inline my-2 my-lg-0">
+                    <input id="navBarSearchForm" name="searchPhrase" class="form-control mr-sm-2" type="search" placeholder="Search for products here.." aria-label="Search" style="width:500px">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #ffc220; color: black">Search</button>
+                </form>*@
 
             @*End of search bar -----------*@
 
@@ -84,141 +84,143 @@
                 @await Component.InvokeAsync("CartSummary")
             </div>
         </div>
-        </nav>
+    </nav>
 
-        <partial name="_CookieConsentPartial" />
+    <partial name="_CookieConsentPartial" />
 
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <!-- Footer -->
-            <footer style="background-color:deepskyblue; width:auto">
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <!-- Footer -->
+    </div>
 
-                <!-- Footer Links -->
-                <div class="container">
+</body>
+<footer style="background-color: #007dc6; width: 100%">
 
-                    <!-- Grid row-->
-                    <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+    <!-- Footer Links -->
+    <div class="container">
 
-                        <!-- Grid column -->
-                        <div class="col-md-2 mb-3">
-                            <h6 class="text-uppercase font-weight-bold">
-                                <a asp-page="/About">About us</a>
-                            </h6>
-                        </div>
-                        <!-- Grid column -->
-                        <!-- Grid column -->
-                        <div class="col-md-2 mb-3">
-                            <h6 class="text-uppercase font-weight-bold">
-                                <a href="/Product/List">Products</a>
-                            </h6>
-                        </div>
-                        <!-- Grid column -->
-                        <!-- Grid column -->
-                        <div class="col-md-2 mb-3">
-                            <h6 class="text-uppercase font-weight-bold">
-                                <a asp-page="/Contact">Contact</a>
-                            </h6>
-                        </div>
-                        <!-- Grid column -->
+        <!-- Grid row-->
+        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
 
-                    </div>
-                    <!-- Grid row-->
-                    <hr class="rgba-white-light" style="margin: 0 15%;">
+            <!-- Grid column -->
+            <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a asp-page="/About">About us</a>
+                </h6>
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="/Product/List">Products</a>
+                </h6>
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a asp-page="/Contact">Contact</a>
+                </h6>
+            </div>
+            <!-- Grid column -->
 
-                    <!-- Grid row-->
-                    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
-
-                        <!-- Grid column -->
-                        <div class="col-md-8 col-12 mt-5">
-                            <p style="line-height: 1.7rem">
-
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                    </div>
-                    <!-- Grid row-->
-                    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
-
-                    <!-- Grid row-->
-                    <div class="row pb-3">
-
-                        <!-- Grid column -->
-                        <div class="col-md-12">
-
-                            <div class="mb-5 flex-center">
-
-                                <!-- Facebook -->
-                                <a class="fb-ic">
-                                    <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
-                                </a>
-                                <!-- Twitter -->
-                                <a class="tw-ic">
-                                    <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
-                                </a>
-                                <!-- Google +-->
-                                <a class="gplus-ic">
-                                    <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
-                                </a>
-                                <!--Linkedin -->
-                                <a class="li-ic">
-                                    <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
-                                </a>
-                                <!--Instagram-->
-                                <a class="ins-ic">
-                                    <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
-                                </a>
-                                <!--Pinterest-->
-                                <a class="pin-ic">
-                                    <i class="fab fa-pinterest fa-lg white-text"> </i>
-                                </a>
-
-                            </div>
-
-                        </div>
-                        <!-- Grid column -->
-
-                    </div>
-                    <!-- Grid row-->
-
-                </div>
-                <!-- Footer Links -->
-                <!-- Copyright -->
-                <div class="footer-copyright text-center py-3">
-                    <a href=~/images/corn.jpg>©</a> 2021 Copyright:
-                    UNFMart
-                </div>
-                <!-- Copyright -->
-
-            </footer>
-            <!-- Footer -->
         </div>
+        <!-- Grid row-->
+        <hr class="rgba-white-light" style="margin: 0 15%;">
 
-        <environment include="Development">
-            <script src="~/lib/jquery/dist/jquery.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-        </environment>
-        <environment exclude="Development">
-            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                    asp-fallback-test="window.jQuery"
-                    crossorigin="anonymous"
-                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-            </script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                    crossorigin="anonymous"
-                    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
-            </script>
-            <script src="~/js/site.min.js" asp-append-version="true"></script>
-        </environment>
+        <!-- Grid row-->
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
 
-        @RenderSection("Scripts", required: false)
-    </body>
-    </html>
+            <!-- Grid column -->
+            <div class="col-md-8 col-12 mt-5">
+                <p style="line-height: 1.7rem">
+
+                </p>
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row-->
+        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+        <!-- Grid row-->
+        <div class="row pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-12">
+
+                <div class="mb-5 flex-center">
+
+                    <!-- Facebook -->
+                    <a class="fb-ic">
+                        <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
+                    </a>
+                    <!-- Twitter -->
+                    <a class="tw-ic">
+                        <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+                    </a>
+                    <!-- Google +-->
+                    <a class="gplus-ic">
+                        <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
+                    </a>
+                    <!--Linkedin -->
+                    <a class="li-ic">
+                        <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic">
+                        <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+                    </a>
+                    <!--Pinterest-->
+                    <a class="pin-ic">
+                        <i class="fab fa-pinterest fa-lg white-text"> </i>
+                    </a>
+
+                </div>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row-->
+
+    </div>
+    <!-- Footer Links -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+        <a href=~/images/corn.jpg>©</a> 2021 Copyright:
+        UNFMart
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+        
+
+<environment include="Development">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</environment>
+<environment exclude="Development">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+            asp-fallback-test="window.jQuery"
+            crossorigin="anonymous"
+            integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+            crossorigin="anonymous"
+            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+    </script>
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+</environment>
+
+@RenderSection("Scripts", required: false)
+</html>
 
 
 
