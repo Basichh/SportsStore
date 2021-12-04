@@ -72,9 +72,22 @@
             </div>
         </div>
     </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-3">
+                <h2>Choose a category!</h2>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="/Product/List/?category=Energy">Energy</a>
+                    <a class="btn btn-primary" href="/Product/List/?category=Water">Water</a>
+                    <a class="btn btn-primary" href="/Product/List/?category=Sports%20Drink">Sports Drinks</a>
+                </div>
+            </div>
+            <div class="col col-md-9">
+                @RenderBody()
+            </div>
+        </div>
 
-    <partial name="_CookieConsentPartial" />
-
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
