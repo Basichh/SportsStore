@@ -10,37 +10,28 @@
 <h2>Thanks!</h2>
 <p>Thanks for placing your order.</p>
 <p>We'll ship your goods as soon as possible.</p>
-<p>Your order id is @ViewBag.ordernum</p>
+<p>Your order # is <b>@ViewBag.order.OrderID</b></p>
 @*<p>Username : @order.name</p>*@
+@{ 
+    var o = ViewBag.order;
+}
 
-
-@*<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped">
+    <tr>
+        <th colspan="2">Details</th>
+    </tr>
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+    </tr>
+    @foreach (CartLine line in o.Lines)
+    {
         <tr>
-            <th>Name</th>
-            <th>Zip</th>
-            <th colspan="2">Details</th>
-            <th></th>
+            <td>@line.Product.Name</td>
+            <td>@line.Quantity</td>            
         </tr>
-        @foreach (Order o in Model)
-        {
-            <tr>
-                <td>@o.Name</td>
-                <td>@o.Zip</td>
-                <td>@o.OrderID</td>
-                <th>Product</th>
-                <th>Quantity</th>
-            </tr>
-            @foreach (CartLine line in o.Lines)
-            {
-                <tr>
-                    <td colspan="2"></td>
-                    <td>@line.Product.Name</td>
-                    <td>@line.Quantity</td>
-                    <td></td>
-                </tr>
-            }
-        }
-    </table>*@
+    }
+</table>
 
 
 

@@ -51,7 +51,7 @@ namespace SportsStore.Controllers
                 repository.SaveOrder(order);
                 ViewBag.order = order;
                 
-                return Completed(order.OrderID);
+                return Completed(order);
             }
             else
             {
@@ -59,10 +59,11 @@ namespace SportsStore.Controllers
             }
         }
 
-        public ViewResult Completed(int orderID)
+        public ViewResult Completed(Order order)
         {
             cart.Clear();
-            ViewBag.ordernum = orderID;
+            ViewBag.order = order;
+            
             //ViewBag.rder = order;
             return View("Completed");
         }
