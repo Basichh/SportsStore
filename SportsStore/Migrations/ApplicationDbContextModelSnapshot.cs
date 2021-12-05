@@ -230,6 +230,15 @@ namespace SportsStore.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<double>("Shipping")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ShownTax")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Tax")
+                        .HasColumnType("float");
+
                     b.HasKey("CartLineID");
 
                     b.HasIndex("OrderID");

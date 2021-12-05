@@ -17,22 +17,33 @@
         </environment>*@
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
     <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
 </head>
 
 <body style="background-color:#F5F5F5">
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #007dc6;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #007dc6; height: 80px;">
         @*<----------- Light blue walmart hex*@
-        <a class="navbar-brand" asp-page="/Index">UNFMart</a>
-        <a class="navbar-brand" asp-page="/Index"> <img src="~/images/OspreyWhiteBG.png" alt="logo" class="image" style="max-height:50px; max-width:50px"></a>
+        <a class="navbar-brand" style = "font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 60px;"asp-page="/Index"><span style="color: #FFB81C">UNF</span>mart</a>
+        <a class="navbar-brand" asp-page="/Index"> <img src="~/images/Osprey.png" alt="logo" class="image" style="max-height:50px; max-width:50px"></a>
         @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>*@
 
-        <div class="navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Product/List"> Products <span class="sr-only">(current)</span></a>
-                </li>
+        <div class="navbar-collapse" id="navbarSupportedContent" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 20px;">
+            <ul class="navbar-nav mr-auto ">
+                <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                </a>
+                <div class="dropdown-menu active" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/Product/List/?category=Energy">Energy</a>
+                    <a class="dropdown-item" href="/Product/List/?category=Water">Water</a>
+                    <a class="dropdown-item" href="/Product/List/?category=Sports%20Drink">Sports Drinks</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/Product/List">All Products</a>
+                </div>
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         More
@@ -44,9 +55,6 @@
                         <a class="dropdown-item" asp-page="/Contact">Contact us</a>
                     </div>
                 </li>
-                @*<li class="nav-item">
-                        <a class="nav-link" asp-action="ShowSearchForm" asp-controller="Product">TestSearch</a>
-                    </li>*@
             </ul>
 
             @*This is the search bar -------------------------*@
@@ -56,30 +64,34 @@
                 </form>*@
 
             @*End of search bar -----------*@
+            
 
-            @if (User.Identity.IsAuthenticated)
-            {
-                <p>Welcome, @this.User.Identity.Name</p>
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/Account/Logout">Logout<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/Order/ViewOrders">Your Orders<span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-            }
-            else
-            {
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/Account/Create">Create an account<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/Account/Login">Login<span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-            }
+            <div style="float: left; position: relative; right: 25px">
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <p>Welcome, @this.User.Identity.Name</p>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Account/Logout">Logout<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Order/ViewOrders">Your Orders<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Account/Create">Create an account<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Account/Login">Login<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                }
+            </div>
             <div class="float-right">
                 @await Component.InvokeAsync("CartSummary")
             </div>

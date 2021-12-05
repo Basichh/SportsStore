@@ -10,8 +10,8 @@ using SportsStore.Models;
 namespace SportsStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211111235459_Identity")]
-    partial class Identity
+    [Migration("20211204002649_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -231,6 +231,15 @@ namespace SportsStore.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<double>("Shipping")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ShownTax")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Tax")
+                        .HasColumnType("float");
 
                     b.HasKey("CartLineID");
 
