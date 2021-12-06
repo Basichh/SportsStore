@@ -55,8 +55,17 @@ namespace SportsStore.Controllers
         
         public async Task<IActionResult> SearchResults(String searchPhrase)
         {
-            String searchThis = char.ToUpper(searchPhrase[0]) + searchPhrase.Substring(1); //Trying to capitalize first letter here. Won't work for some reason
-            return Redirect("/Product/List/?category=" + searchPhrase);
+            if (searchPhrase == null)
+            {
+                return Redirect("/Product/List");
+            }
+           
+            else
+            {
+                String searchThis = char.ToUpper(searchPhrase[0]) + searchPhrase.Substring(1); //Trying to capitalize first letter here. Won't work for some reason
+                return Redirect("/Product/List/?category=" + searchPhrase);
+            }
+           
         }
     }
 }

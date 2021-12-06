@@ -6,47 +6,85 @@
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 @*<div class="Home_container">*@
-<h2 class="w3-center">Water</h2>
+@*<h2 class="w3-center">Water</h2>
 
-<div class="w3-content w3-display-container" style="max-width:400px">
-    <img class="mySlides1" src="~/images/dasani.jpg" style="max-width:400px">
-    <img class="mySlides1" src="~/images/smartwater.jpg" style="max-width:400px">
-    <img class="mySlides1" src="~/images/eternalwater.jpg" style="max-width:400px">
-    <img class="mySlides1" src="~/images/fiji-bottle.jpg" style="max-width:400px">
-    <img class="mySlides1" src="~/images/zephyr-bottle.jpg" style="max-width:400px">
+    <div class="w3-content w3-display-container" style="max-width:400px">
+        <img class="mySlides1" src="~/images/dasani.jpg" style="max-width:400px">
+        <img class="mySlides1" src="~/images/smartwater.jpg" style="max-width:400px">
+        <img class="mySlides1" src="~/images/eternalwater.jpg" style="max-width:400px">
+        <img class="mySlides1" src="~/images/fiji-bottle.jpg" style="max-width:400px">
+        <img class="mySlides1" src="~/images/zephyr-bottle.jpg" style="max-width:400px">
 
-    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1, 0)">&#10094;</button>
-    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1, 0)">&#10095;</button>
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1, 0)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1, 0)">&#10095;</button>
+    </div>
+    <h2 class="w3-center">Sports Drinks</h2>
+    <div class="w3-content w3-display-container" style="max-width:400px">
+        <img class="mySlides2" src="~/images/gatorade-blue.jpeg" style="max-width:400px">
+        <img class="mySlides2" src="~/images/powerade-red.jpeg" style="max-width:400px">
+        <img class="mySlides2" src="~/images/propel.jpg" style="max-width:400px">
+
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1, 1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1, 1)">&#10095;</button>
+    </div>
+
+    <script>
+        var slideIndex = [1, 1];
+        var slideId = ["mySlides1", "mySlides2"]
+        showDivs(1, 0);
+        showDivs(1, 1);
+
+        function plusDivs(n, no) {
+            showDivs(slideIndex[no] += n, no);
+        }
+
+        function showDivs(n, no) {
+            var i;
+            var x = document.getElementsByClassName(slideId[no]);
+            if (n > x.length) { slideIndex[no] = 1 }
+            if (n < 1) { slideIndex[no] = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex[no] - 1].style.display = "block";
+        }
+    </script>*@
+
+<div class="w3-container">
+    <h2>Animated Slides</h2>
+    <p>Slide or fade in an element from the top, bottom, left or right of the screen with the w3-animate-* classes.</p>
 </div>
-<h2 class="w3-center">Sports Drinks</h2>
-<div class="w3-content w3-display-container" style="max-width:400px">
-    <img class="mySlides2" src="~/images/gatorade-blue.jpeg" style="max-width:400px">
-    <img class="mySlides2" src="~/images/powerade-red.jpeg" style="max-width:400px">
-    <img class="mySlides2" src="~/images/propel.jpg" style="max-width:400px">
 
-    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1, 1)">&#10094;</button>
-    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1, 1)">&#10095;</button>
+<div class="w3-content w3-section" style="max-width:500px">
+    <img class="mySlides w3-animate-top" src="~/images/bang.jpg" style="width:100%">
+    <img class="mySlides w3-animate-bottom" src="~/images/dasani.jpg" style="width:100%">
+    <img class="mySlides w3-animate-top" src="~/images/eternalwater.jpg" style="width:100%">
+    <img class="mySlides w3-animate-bottom" src="~/images/fiji-bottle.jpg" style="width:100%">
+    <img class="mySlides w3-animate-top" src="~/images/gatorade-blue.jpeg" style="width:100%">
+    <img class="mySlides w3-animate-bottom" src="~/images/mosnter-can.jpg" style="width:100%">
+    <img class="mySlides w3-animate-top" src="~/images/powerade-red.jpeg" style="width:100%">
+    <img class="mySlides w3-animate-bottom" src="~/images/propel.jpg" style="width:100%">
+    <img class="mySlides w3-animate-top" src="~/images/redbull.jpg" style="width:100%">
+    <img class="mySlides w3-animate-bottom" src="~/images/rockstar-can.jpg" style="width:100%">
+    <img class="mySlides w3-animate-top" src="~/images/smartwater.jpg" style="width:100%">
+    <img class="mySlides w3-animate-bottom" src="~/images/starbucks-bottle.jpg" style="width:100%">
+    <img class="mySlides w3-animate-top" src="~/images/zephyr-bottle.jpg" style="width:100%">
 </div>
 
 <script>
-    var slideIndex = [1, 1];
-    var slideId = ["mySlides1", "mySlides2"]
-    showDivs(1, 0);
-    showDivs(1, 1);
+    var myIndex = 0;
+    carousel();
 
-    function plusDivs(n, no) {
-        showDivs(slideIndex[no] += n, no);
-    }
-
-    function showDivs(n, no) {
+    function carousel() {
         var i;
-        var x = document.getElementsByClassName(slideId[no]);
-        if (n > x.length) { slideIndex[no] = 1 }
-        if (n < 1) { slideIndex[no] = x.length }
+        var x = document.getElementsByClassName("mySlides");
         for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
         }
-        x[slideIndex[no] - 1].style.display = "block";
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 2500);
     }
 </script>
 @*<div class="w3-container">
