@@ -36,7 +36,7 @@ namespace SportsStore.Models
             lineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
 
         public virtual decimal ComputeTotalValue() =>
-            lineCollection.Sum(e => e.Product.Price * e.Quantity * decimal.Parse(e.Tax.ToString()) + decimal.Parse(e.Shipping.ToString()));
+            lineCollection.Sum(e => e.Product.Price * e.Quantity * decimal.Parse(e.Tax.ToString()));
 
         public virtual void Clear() => lineCollection.Clear();
 

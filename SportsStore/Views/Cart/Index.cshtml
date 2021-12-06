@@ -63,7 +63,7 @@ else
             <tr>
                 <td colspan="4" class="text-right">Total:</td>
                 <td class="text-right">
-                    @(Model.Cart.ComputeTotalValue().ToString("c"))
+                    @((Model.Cart.ComputeTotalValue() + 3).ToString("c"))
                 </td>
             </tr>
         </tfoot>
