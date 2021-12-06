@@ -25,11 +25,13 @@ namespace SportsStore.Controllers
             repository = repo;
         }
 
-        public ViewResult List(string category, int page = 1)
+        public ViewResult List(string category, string name,string description, int page = 1)
             => View(new ProductsListViewModel
             {
                 Products = repository.Products
                             .Where(p => category == null || p.Category == category)
+                            .Where(p => name == null || p.Name == name)
+                            .Where(p => description == null || p.Description == description)
                             .OrderBy(p => p.ProductID)
                             .Skip((page - 1) * PageSize)
                             .Take(PageSize),
@@ -51,9 +53,10 @@ namespace SportsStore.Controllers
             return View();
         }
         
-        //public async Task<IActionResult> SearchResults(String searchPhrase)
-        //{
-        //    return View("Index", await _context.Products.ToList);
-        //}
+        public async Task<IActionResult> SearchResults(String searchPhrase)
+        {
+            String searchThis = char.ToUpper(searchPhrase[0]) + searchPhrase.Substring(1); //Trying to capitalize first letter here. Won't work for some reason
+            return Redirect("/Product/List/?category=" + searchPhrase);
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html> <!--This is the homepage LAYOUT-->
 <html>
 <head>
     <meta charset="utf-8" />
@@ -22,18 +22,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
 </head>
 
-<body style="background-color:#F5F5F5">
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #007dc6; height: 80px;">
-        @*<----------- Light blue walmart hex*@
-        <a class="navbar-brand" style = "font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 60px;"asp-page="/Index"><span style="color: #FFB81C">UNF</span>mart</a>
-        <a class="navbar-brand" asp-page="/Index"> <img src="~/images/Osprey.png" alt="logo" class="image" style="max-height:50px; max-width:50px"></a>
-        @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<body style="background-color: #F5F5F5">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #007dc6; height: 80px;">
+    @*<----------- Light blue walmart hex*@
+    <a class="navbar-brand" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 60px;"asp-page="/Index"><span style="color: #FFB81C">UNF</span>mart</a>
+    <a class="navbar-brand" asp-page="/Index"> <img src="~/images/Osprey.png" alt="logo" class="image" style="max-height: 50px; max-width: 50px"></a>
+    @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>*@
 
-        <div class="navbar-collapse" id="navbarSupportedContent" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 20px;">
-            <ul class="navbar-nav mr-auto ">
-                <li class="nav-item dropdown active">
+    <div class="navbar-collapse" id="navbarSupportedContent" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 20px;">
+        <ul class="navbar-nav mr-auto ">
+            <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Categories
                 </a>
@@ -44,67 +44,67 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/Product/List">All Products</a>
                 </div>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        More
-                    </a>
-                    <div class="dropdown-menu active" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" asp-page="/About">About</a>
-                        <a class="dropdown-item" asp-page="/FAQ">FAQ</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" asp-page="/Contact">Contact us</a>
-                    </div>
-                </li>
-            </ul>
-
-            @*This is the search bar -------------------------*@
-            @*<form asp-action="ShowSearchForm" asp-controller="Product" class="form-inline my-2 my-lg-0">
-                    <input id="navBarSearchForm" name="searchPhrase" class="form-control mr-sm-2" type="search" placeholder="Search for products here.." aria-label="Search" style="width:500px">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #ffc220; color: black">Search</button>
-                </form>*@
-
-            @*End of search bar -----------*@
-            
-
-            <div style="float: left; position: relative; right: 25px">
-
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <p>Welcome, @this.User.Identity.Name</p>
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/Account/Logout">Logout<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/Order/ViewOrders">Your Orders<span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/Account/Create">Create an account<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/Account/Login">Login<span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                }
-            </div>
-            <div class="float-right">
-                @await Component.InvokeAsync("CartSummary")
-            </div>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </a>
+                <div class="dropdown-menu active" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" asp-page="/About">About</a>
+                    <a class="dropdown-item" asp-page="/FAQ">FAQ</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" asp-page="/Contact">Contact us</a>
+                </div>
+            </li>
+        </ul>
+        @*This is the search bar -------------------------*@
+        <div style="position: relative; right: 500px; font-family: 'Yanone Kaffeesatz', sans-serif;">
+           
+            <form asp-action="SearchResults" asp-controller="Product" class="form-inline my-2 my-lg-0">
+                <input id="navBarSearchForm" name="searchPhrase" class="form-control mr-sm-2" type="search" placeholder="Search for products here.." aria-label="Search" style="width:500px">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #FFB81C; color: black">Search</button>
+            </form>
         </div>
-    </nav>
 
-    <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <!-- Footer -->
+        <div style="float: left; position: relative; right: 25px; font-family: 'Yanone Kaffeesatz', sans-serif;">
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <p style="position: relative; top: 25px; color: white">Welcome, <span style="color: #FFB81C;">@this.User.Identity.Name</span></p>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Account/Logout">Logout<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Order/ViewOrders">Your Orders<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Account/Create">Create an account<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Account/Login">Login<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            }
+        </div>
+        <div class="float-right">
+            @await Component.InvokeAsync("CartSummary")
+        </div>
     </div>
+</nav>
+
+<partial name="_CookieConsentPartial"/>
+
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+    <!-- Footer -->
+</div>
 
 </body>
 <footer style="background-color: #007dc6; width: 100%">
