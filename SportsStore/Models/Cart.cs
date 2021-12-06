@@ -24,8 +24,7 @@ namespace SportsStore.Models
                     Quantity = quantity,
                     Shipping = 3.00,
                     ShownTax = 0.07,
-                    Tax = 1.07
-                    
+                    Tax = 1.07                    
                 });
             }
             else
