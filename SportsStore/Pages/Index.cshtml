@@ -5,13 +5,38 @@
 }
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css/JellyButton.css"/>
 
-<div class="w3-container">
-    <h2>Bring the drinks to you!</h2>
-    <p>Need refreshments?  Stuck in the class room?  Order now!</p>
+
+<div style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 45px; position: relative; text-align: center; margin: 0; padding: 0;">
+    <p>Need refreshments?  Stuck in the class room?</p>
+</div>
+<div class="buttons" style="position: relative; left: 150px; margin: 0; padding: 0;">
+    <button onclick="window.location.href='/Product/List'" class="blob-btn">
+        Hydrate Now
+        <span class="blob-btn__inner">
+            <span class="blob-btn__blobs">
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+            </span>
+        </span>
+    </button>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+                <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+            </filter>
+        </defs>
+    </svg>
 </div>
 
-<div class="w3-content w3-section" style="max-width:500px">
+
+<div class="w3-content w3-section" style="max-width: 500px; margin-top: 0; margin-bottom: 0;padding-top: 0; padding-bottom: 0;">
     <img class="mySlides w3-animate-top" src="~/images/bang.jpg" style="width:100%">
     <img class="mySlides w3-animate-bottom" src="~/images/dasani.jpg" style="width:100%">
     <img class="mySlides w3-animate-top" src="~/images/eternalwater.jpg" style="width:100%">
@@ -25,9 +50,6 @@
     <img class="mySlides w3-animate-top" src="~/images/smartwater.jpg" style="width:100%">
     <img class="mySlides w3-animate-bottom" src="~/images/starbucks-bottle.jpg" style="width:100%">
     <img class="mySlides w3-animate-top" src="~/images/zephyr-bottle.jpg" style="width:100%">
-</div>
-<div class="w3-container">
-    <a class="btn btn-outline-primary" href="/Product/List" role="button">SHOP NOW</a>
 </div>
 
 <script>
@@ -89,5 +111,5 @@
             x[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " w3-opacity-off";
         }
-    </script>*@
-@*</div>*@
+    </script>
+</div>*@

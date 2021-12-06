@@ -66,11 +66,11 @@
             @*End of search bar -----------*@
 
 
-            <div style="float: left; position: relative; right: 25px">
+            <div style="float: left; position: relative; right: 25px; font-family: 'Yanone Kaffeesatz', sans-serif;">
 
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <p>Welcome, @this.User.Identity.Name</p>
+                    <p style="position: relative; top: 25px; color: white">Welcome, <span style="color: #FFB81C;">@this.User.Identity.Name</span></p>
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="/Account/Logout">Logout<span class="sr-only">(current)</span></a>
