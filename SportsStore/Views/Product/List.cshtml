@@ -1,12 +1,33 @@
 ﻿@model ProductsListViewModel
-@foreach (var p in Model.Products)
-{
-    @Html.Partial("ProductSummary", p)
-}
-<div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-default"
-     page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory" class="btngroup float-right">
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <div class="btn-group-lg btn-group-vertical" style="top: 50px">
+                <a class="btn btn-outline-primary" href="/Product/List/?category=Energy">Energy</a>
+                <a class="btn btn-outline-primary" href="/Product/List/?category=Water">Water</a>
+                <a class="btn btn-outline-primary" href="/Product/List/?category=Sports%20Drink">Sports Drinks</a>
+                <a class="btn btn-outline-primary" href="/Product/List/">All Products</a>
+            </div>
+        </div>
+        
+        <div class="col-sm">
+            @foreach (var p in Model.Products)
+            {
+                @Html.Partial("ProductSummary", p)
+            }
+        </div>
+
+    </div>
 </div>
+
+@*This is the page buttons*@
+    @*<div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-default"
+         page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory" class="btngroup float-right" style="color: #007dc6">
+    </div>*@
+
+
 
 
 

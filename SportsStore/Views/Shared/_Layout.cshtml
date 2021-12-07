@@ -31,73 +31,74 @@
                 <span class="navbar-toggler-icon"></span>
             </button>*@
 
-        <div class="navbar-collapse" id="navbarSupportedContent" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 20px;">
-            <ul class="navbar-nav mr-auto ">
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Categories
-                    </a>
-                    <div class="dropdown-menu active" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/Product/List/?category=Energy">Energy</a>
-                        <a class="dropdown-item" href="/Product/List/?category=Water">Water</a>
-                        <a class="dropdown-item" href="/Product/List/?category=Sports%20Drink">Sports Drinks</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/Product/List">All Products</a>
-                    </div>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        More
-                    </a>
-                    <div class="dropdown-menu active" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" asp-page="/About">About</a>
-                        <a class="dropdown-item" asp-page="/FAQ">FAQ</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" asp-page="/Contact">Contact us</a>
-                    </div>
-                </li>
-            </ul>
+    <div class="navbar-collapse" id="navbarSupportedContent" style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 20px;">
+        <ul class="navbar-nav mr-auto ">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                </a>
+                <div class="dropdown-menu active" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/Product/List/?category=Energy">Energy</a>
+                    <a class="dropdown-item" href="/Product/List/?category=Water">Water</a>
+                    <a class="dropdown-item" href="/Product/List/?category=Sports%20Drink">Sports Drinks</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/Product/List">All Products</a>
+                </div>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </a>
+                <div class="dropdown-menu active" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" asp-page="/About">About</a>
+                    <a class="dropdown-item" asp-page="/FAQ">FAQ</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" asp-page="/Contact">Contact us</a>
+                </div>
+            </li>
+        </ul>
 
-            @*This is the search bar -------------------------*@
-            @*<form asp-action="ShowSearchForm" asp-controller="Product" class="form-inline my-2 my-lg-0">
-                    <input id="navBarSearchForm" name="searchPhrase" class="form-control mr-sm-2" type="search" placeholder="Search for products here.." aria-label="Search" style="width:500px">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #ffc220; color: black">Search</button>
-                </form>*@
+        @*This is the search bar -------------------------*@
+        <div style="position: relative; right: 500px; font-family: 'Yanone Kaffeesatz', sans-serif;">
 
-            @*End of search bar -----------*@
-
-
-            <div style="float: left; position: relative; right: 25px; font-family: 'Yanone Kaffeesatz', sans-serif;">
-
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <p style="position: relative; top: 25px; color: white">Welcome, <span style="color: #FFB81C;">@this.User.Identity.Name</span></p>
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/Account/Logout">Logout<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/Order/ViewOrders">Your Orders<span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/Account/Create">Create an account<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/Account/Login">Login<span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                }
-            </div>
-            <div class="float-right">
-                @await Component.InvokeAsync("CartSummary")
-            </div>
+            <form asp-action="SearchResults" asp-controller="Product" class="form-inline my-2 my-lg-0">
+                <input id="navBarSearchForm" name="searchPhrase" class="form-control mr-sm-2" type="search" placeholder="Search for products here.." aria-label="Search" style="width:500px">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: #FFB81C; color: black">Search</button>
+            </form>
         </div>
+
+
+        <div style="float: left; position: relative; right: 25px; font-family: 'Yanone Kaffeesatz', sans-serif;">
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <p style="position: relative; top: 25px; color: white">Welcome, <span style="color: #FFB81C;">@this.User.Identity.Name</span></p>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Account/Logout">Logout<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Order/ViewOrders">Your Orders<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Account/Create">Create an account<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Account/Login">Login<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            }
+        </div>
+        <div class="float-right">
+            @await Component.InvokeAsync("CartSummary")
+        </div>
+    </div>
     </nav>
-    <div class="container">
+    @*<div class="container">
         <div class="row">
             <div class="col col-md-3">
                 <h4>Choose a category!</h4>
@@ -114,7 +115,7 @@
             <div class="col col-md-9">
                 @RenderBody()
             </div>
-        </div>
+        </div>*@
 
     </div>
     <div class="container body-content">

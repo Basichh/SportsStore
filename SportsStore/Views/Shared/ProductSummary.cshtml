@@ -5,10 +5,10 @@
             <h3 class="card-title">
                 <strong>@Model.Name</strong>
             </h3>
-            <p class="card-text lead">
+            <p style="font-size: 12pt;"class="card-text lead">
                 @Model.Description
             </p>
-            <span class="float-left bg-success text-white rounded m-2 p-1">
+            <span class="float-left font-weight-bold rounded m-2 p-1">
                 @Model.Price.ToString("c")
             </span>
             <form id="@Model.ProductID" asp-action="AddToCart"
@@ -16,7 +16,7 @@
                 <input type="hidden" asp-for="ProductID" />
                 <input type="hidden" name="returnUrl"
                        value="@ViewContext.HttpContext.Request.QueryString" />
-                <button type="submit" class="btn btn-info btn-sm float-right">
+                <button class="btn btn-sm text-white float-right rounded-pill" style="background-color: #007dc6"type="submit">
                     Add To Cart
                 </button>
             </form>
